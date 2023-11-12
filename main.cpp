@@ -14,7 +14,20 @@ const std::array kaomoji {
 	"(o^ ^o)/", "(￣▽ ￣)/"
 };
 
-const std::string message = "Mayw I hav ur passwrd sir";
+const std::array message = {
+	"Mayw I hav ur passwrd sir",
+	"Mayw I hav ur passwowd sir",
+	"Unfowtuwnatewy i need ur passwowd sir",
+	"Pwease give me ur passwowd",
+	"I nyeed a passwrd",
+	"I nyeed a passwowd",
+	"What is the p-p-passcode",
+};
+
+int random_int(int max)
+{
+	return std::rand() / ((RAND_MAX + 1u) / max);
+}
 
 int main(void)
 {
@@ -30,8 +43,10 @@ int main(void)
 
 	srand(seed);
 
-	int random_kaomoji = std::rand() / ((RAND_MAX + 1u) / kaomoji.size());
-	std::cout << kaomoji[random_kaomoji] << " " << message << ": \n";
+	int random_kaomoji = random_int(kaomoji.size());
+	int random_message = random_int(message.size());
+
+	std::cout << kaomoji[random_kaomoji] << " " << message[random_message] << ": \n";
 
 	return 0;
 }
